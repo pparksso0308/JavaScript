@@ -18,7 +18,7 @@
 
 
 ## 문자+문자(+)
-	alert("coding"+" everybody");        //coding everybody
+	alert("coding" + " everybody");        //coding everybody
 	
 ## 문자열의 길이(.length)
 	alert("coding everybody".length)        //16
