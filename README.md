@@ -12,7 +12,7 @@
 	Math.random(); 		// 0부터 1.0 사이의 랜덤한 숫자
 
 ## 따옴표 출력
-	alert('egoing\'s javascript')
+	alert('sso\'s javascript')
  \를 ' 앞에 위치시키면 ' 를 문자열의 시작과 끝을 구분하는 구분자가 아니라 단순히 문자로 해석하도록 강제 할 수 있다. \
  이러한 기법을 이스케이프(escape)라고 한다.	
 
