@@ -17,5 +17,10 @@
  이러한 기법을 이스케이프(escape)라고 한다.	
 
 
+## 문자+문자(+)
+	alert("coding"+" everybody");        //coding everybody
+	
+## 문자열의 길이(.length)
+	alert("coding everybody".length)        //16
 
 	  
