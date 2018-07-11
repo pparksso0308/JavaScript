@@ -52,13 +52,13 @@
 	    return 'My name is ' + this.name;       	// function이 담겨있는 객체(person)을 가르킴
 	}
 	document.write(person.introduce());
-	
+
 (2)
 	var person = {
-	    'name' : 'sso',
-	    'introduce' : function(){
-		return 'My name is '+ this.name;
-	    }
+		'name' : 'sso',
+		'introduce' : function(){
+			return 'My name is '+ this.name;
+		   }
 	}
 	ducument.write(person.introduce());
 
@@ -335,5 +335,87 @@ prototype가 있는 메소드 사용
 	["0","1","2"]
 	[object Object]
 
- ### Object 확장
+ ### Object 확장	
  
+ 	Object.prototype.contain =function(needle){
+	   for (var name in this){//this=== 메소드가 소속되어 있는 객체 ===o===a
+		if(this[name]===needle){
+		    return true;
+		}
+	   } 
+	   return false
+	}
+
+	var o = {'name':'park', 'city':'seoul'}
+	console.log(o.contain('park'));
+	var a = ['park','sso','yeon'];
+	console.log(a.contain('sso'));
+
+결과
+
+	true
+	true
+
+Object 확장은 모든 객체에 영향을 주기 때문에 신중하게 사용해야 한다.
+
+객체.hasOwnProperty(property 이름) : 인자로 전달된 속성의 이름이 객체의 속성인지 여부를 판단한다(T/F)
+만약 prototype으로 상속 받은 객체라면 false가 된다.
+
+## 데이터 타입
+원시 데이터 타입(객체가 아닌 데이터 타입) <-> 참조 자료형 (객체)
+*숫자
+*문자열
+*boolean
+*null
+*undefined
+
+wrapper object : 원시 데이터 형을 객체처럼 다룰 수 있도록 한 객체 (객체지향)
+*숫자 		 -> Number
+*문자열		->String
+*boolean 	  -> Boolean
+*null		  -> 없음
+*undefined	  ->없음
+
+
+## 참조(reference)
+
+	var a = {'id':1};	// 객체(참조 자료형)
+	var b = a;		// 참조
+	b.id = 2;
+	console.log(a.id);  // 2
+결과
+	2
+	
+만약 a의 값이 객체라면 참조 발생 O 복사 발생 X <br />
+객체가 아니라 원시 데이터 타입이라면 참조 발생 X 복사 발생 O<br />
+
+! 주의
+	var a = {'id':1};
+	var b = a;
+	b={'id':2};		// 객체 생성 == 참조X
+	console.log(a.id); 	//1
+결과
+	1
+	
+## 함수와 참조
+(1)
+	var a = {'id':1};
+	function func(b){		//b=a
+	    b = {'id':2};		// b = {'id':2};
+	}				// b와 a사이의 링크가 끊김
+	func(a);
+	console.log(a.id);  // 1
+결과
+	1
+
+ b = {'id':2}; b가 가리키는 객체를 변경했기 때문에 a에 영향을 미치지 않는다.
+
+(2)
+	var a = {'id':1};
+	function func(b){	// b=a
+	    b.id = 2;
+	}
+	func(a);
+	console.log(a.id);  // 2
+
+매개 변수 b는 객체 a의 레퍼런스이므로 b를 수정하면 a에도 영향을 미친다.
