@@ -250,7 +250,7 @@ Programmer이라는 생성자를 만들고 이 생성자의 prototype과 Person�
 함수는 객체 -> 생성자로 사용되는 함수도 객체 ->객체는 property를 가짐 
 ->prototype이라는 property는 용도가 이미 약속되어있는 특수 property이다.
 
-prototype에 저장된 속성들은 생성자를 통해서 객체가 만들어질 때 그 객체에 연결된다.
+prototype에 저장된 속성들은 생성자를 통해서 객체가 만들어질 때 그 객체에 연결된다(prototype chain).
 
 	function Ultra(){}
 	Ultra.prototype.ultraProp = true;
@@ -266,3 +266,10 @@ prototype에 저장된 속성들은 생성자를 통해서 객체가 만들어�
 
 결과
 	true
+
+prototype chain : prototype이 객체와 객체를 연결하는 체인 역할을 하는 것
+
+1. 객체 o에서 ultraProp를 찾는다.
+2. 없다면 Sub.prototype.ultraProp를 찾는다. 있다면 반환
+2. 없다면 Super.prototype.ultraProp를 찾는다. 있다면 반환
+2. 없다면 Ultra.prototype.ultraProp를 찾는다. 있다면 반환
