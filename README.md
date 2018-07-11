@@ -156,9 +156,9 @@ this === 메소드가 소속되어 있는 객체
 	func.apply(p);
 
 결과
-window\n
-o\n
-p\n
+window \n
+o \n
+p \n
 
 ### 생성자의 호출 
 
@@ -178,7 +178,8 @@ p\n
 	}
 
 결과\n
-window\no2\n
+window\n
+o2\n
 생성자는 빈 객체를 만들고 이 객체내에서 this는 만들어진 객체를 가르킨다.
 
 생성자가 실행되기 전까지 객체는 사용할 수 없다.
