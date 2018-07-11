@@ -156,9 +156,9 @@ this === 메소드가 소속되어 있는 객체
 	func.apply(p);
 
 결과
-	window
-	o
-	p
+	window /n
+	o /n
+	p /n
 
 ### 생성자의 호출 
 
@@ -177,8 +177,8 @@ this === 메소드가 소속되어 있는 객체
 	    document.write('o2 <br />');
 	}
 
-결과
-	window
+결과/n
+	window /n
 	o2
 생성자는 빈 객체를 만들고 이 객체내에서 this는 만들어진 객체를 가르킨다.
 
