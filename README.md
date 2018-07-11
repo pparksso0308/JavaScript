@@ -155,8 +155,10 @@ this === 메소드가 소속되어 있는 객체
 	func.apply(o);
 	func.apply(p);
 
-결과/n
-window/no/np/n
+결과
+window
+o
+p
 
 ### 생성자의 호출 
 
