@@ -45,7 +45,7 @@
 객체란 서로 연관된 변수와 함수를 모아둔 그릇
 객체 = 변수(property) + 함수(method)
 
-(1)
+	(1)
 	var person = {}					// {}객체(object)를 만듬
 	person.name = 'sso';    			// 그릇안에 name이란 변수(속성)를 넣고, 변수의 내용 = sso
 	person.introduce = function(){ 			// 변수에 담긴 값이 함수라면 method( introduce===method)
@@ -53,7 +53,7 @@
 	}
 	document.write(person.introduce());
 
-(2)
+	(2)
 	var person = {
 		'name' : 'sso',
 		'introduce' : function(){
