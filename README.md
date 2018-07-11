@@ -194,7 +194,7 @@ this === 메소드가 소속되어 있는 객체
 	
 
 ## 상속(inheritance)
-객체의 로직을 그대로 물려받는 또 다른 객체를 만들 수 있는 기능
+객체의 로직을 그대로 물려받는 또 다른 객체를 만들 수 있는 기능 /
 -> 코드의 재활용성이 높아짐
 
 	function Person(name){
@@ -276,3 +276,64 @@ prototype chain : prototype이 객체와 객체를 연결하는 체인 역할을
 
 ! 주의
 자식이 변하면, 부모도 변한다.
+
+## 표준 내장 객체(Standard Built-in Object)
+자바스크립트가 기본적으로 가지고 있는 객체들
+
+* Object
+* Funtion
+* Array
+* String
+* Boolean
+* Number
+* Math
+* Date
+* RegExp
+
+자바스크립트는 위와 같은 내장 객체를 가지고 있다.
+
+배열에서 값을 랜덤하게 추출하기
+
+	var arr = new Array('one','two','three','four', 'five');
+	function getRandomValueFromArray(haystack){
+	    var index = Math.floor(haystack.length*Math.random());	//수의 연산
+	    return haystack[index]; 
+	}
+	console.log(getRandomValueFromArray(arr));
+	
+함수를 배열 객체에 포함시키기
+
+	Array.prototype.rand = function(){
+	    var index = Math.floor(this.length*Math.random());  //this === 배열 객체
+	    return this[index];
+	}
+	var arr = new Array('one', 'two', 'three', 'four', 'five');
+	console.log(arr.rand());
+
+결과 실행할 때마다 배열의 값중 하나가 랜덤하게 출력된다.
+
+## Object
+object 객체는 객체의 가장 기본적인 형태를 가지고 있는 객체이다.
+(아무것도 상속받지 않은 순수한 객체)
+자바스크립트에서는 object를 값을 저장하는 기본적인 단위로 사용한다.
+
+자바스크립트의 모든 객체는 Object 객체를 상속 받기 때문에 모든 객체는 object 객체의 프로퍼티를 가지고 있다.
+(object의 prototype은 모든 객체가 사용가능하다.
+
+prototype가 없는 메소드 사용
+
+	//object.keys()
+	var arr = ["a", "b","c"]
+	console.log(Object.keys(arr));		// Object === 생성자 함수
+
+prototype가 있는 메소드 사용
+	//Object/prototype.toString()
+	var o = new Object();			// 객체를 만듬
+	console.log(o.toString());
+
+결과
+	["0","1","2"]
+	[object Object]
+
+ ### Object 확장
+ 
