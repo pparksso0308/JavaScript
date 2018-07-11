@@ -273,3 +273,6 @@ prototype chain : prototype이 객체와 객체를 연결하는 체인 역할을
 2. 없다면 Sub.prototype.ultraProp를 찾는다. 있다면 반환
 2. 없다면 Super.prototype.ultraProp를 찾는다. 있다면 반환
 2. 없다면 Ultra.prototype.ultraProp를 찾는다. 있다면 반환
+
+! 주의
+자식이 변하면, 부모도 변한다.
