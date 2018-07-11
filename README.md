@@ -26,7 +26,15 @@
 ## 문자열의 길이(.length)
 	alert("coding everybody".length)        //16
 
-	  
+
+
+## 리터럴(literal)
+값을 만들 수 있도록 도와주는 문법체계 
+
+	var o = {}		// 객체 리터럴
+	var a = [1,2,3]		// 배열 리터럴
+
+
 # 객체지향
 
 
@@ -90,3 +98,171 @@
 	window.func();		// 모든 전역변수와 함수는 window 객체의 속성이다.
 
 객체를 명시하지 않으면 암시적으로  window의 속성으로 간주한다.
+
+## this
+함수 내에서 함수의 호출 맥락(context)
+즉, 함수를 호출하는 방법에 따라 this의 의미가 달라진다.
+
+### 함수 호출
+
+	function func(){
+	    if(window === this){
+		console.log("window === this"); 
+	    }
+	}
+	func();		// 실행 O
+결과
+	this === window
+	
+### 메소드 호출
+
+this === 메소드가 소속되어 있는 객체
+
+	var o = {
+	    func : function() {
+		if( o === this) {
+		    console.log("o === this");
+		}
+	    }
+	}
+	o.func();
+
+결과
+	o === this
+	
+
+함수의 호출과 메소드의 호출은 결국 같다.
+
+### apply
+함수의 메소드인 apply를 이용해 this를 제어할 수 있다.
+
+	var o = {}
+	var p = {}
+	function func(){
+	    switch(this){
+		case o:
+		    document.write('o<br />');
+		    break;
+		case p:
+		    document.write('p<br />');
+		    break;
+		case window:
+		    document.write('window<br />');
+		    break;          
+	    }
+	}
+	func();
+	func.apply(o);
+	func.apply(p);
+
+결과
+	window
+	o
+	p
+
+### 생성자의 호출 
+
+	var funcThis = null; 
+
+	function Func(){
+	    funcThis = this;
+	}
+	var o1 = Func();
+	if(funcThis === window){
+	    document.write('window <br />');
+	}
+
+	var o2 = new Func();
+	if(funcThis === o2){
+	    document.write('o2 <br />');
+	}
+
+결과
+	window
+	o2
+생성자는 빈 객체를 만들고 이 객체내에서 this는 만들어진 객체를 가르킨다.
+
+생성자가 실행되기 전까지 객체는 사용할 수 없다.
+
+	function Func(){
+  		 document.write(o);
+	}
+	var o = new Func();
+	
+결과
+	undefined		// o가 생성되기 전에 생성자에서 사용함
+	
+
+## 상속(inheritance)
+객체의 로직을 그대로 물려받는 또 다른 객체를 만들 수 있는 기능
+-> 코드의 재활용성이 높아짐
+
+	function Person(name){
+	    this.name= name;
+	}
+	Person.prototype.name = null;
+	Person.prototype.introduce = function(){
+	    return 'My name is '+this.name;
+	}
+
+	function Programmer(name){
+	    this.name = name;
+	}
+
+	Programmer.prototype = new Person();    //상속
+
+	var p1 = new Programmer('sso');
+	document.write(p1.introduce()+ "<br / >");
+
+결과
+	My name is sso
+
+Programmer이라는 생성자를 만들고 이 생성자의 prototype과 Person객체를 연결하면 Programmer 객체도 메소드 introduce를 사용할 수 있게된다.
+
+	function Person(name){
+	    this.name= name;
+	}
+	Person.prototype.name = null;
+	Person.prototype.introduce = function(){
+	    return 'My name is '+this.name;
+	}
+
+	function Programmer(name){
+	    this.name = name;
+	}
+
+	Programmer.prototype = new Person();    //상속
+	Programmer.prototype.coding = function(){
+	    return "Hello World";
+	}
+
+	var p1 = new Programmer('sso');
+	document.write(p1.introduce()+ "<br / >");
+	document.write(p1.coding()+"<br />");
+	
+결과
+
+	My name is sso
+	Hello World
+	
+## prototype
+객체의 원형
+함수는 객체 -> 생성자로 사용되는 함수도 객체 ->객체는 property를 가짐 
+->prototype이라는 property는 용도가 이미 약속되어있는 특수 property이다.
+
+prototype에 저장된 속성들은 생성자를 통해서 객체가 만들어질 때 그 객체에 연결된다.
+
+	function Ultra(){}
+	Ultra.prototype.ultraProp = true;
+
+	function Super(){}
+	Super.prototype = new Ultra();
+
+	function Sub(){}
+	Sub.prototype = new Super();
+
+	var o = new Sub();	
+	console.log(o.ultraProp);
+
+결과
+	true
