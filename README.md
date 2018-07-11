@@ -280,15 +280,15 @@ prototype chain : prototype이 객체와 객체를 연결하는 체인 역할을
 ## 표준 내장 객체(Standard Built-in Object)
 자바스크립트가 기본적으로 가지고 있는 객체들
 
-* Object
-* Funtion
-* Array
-* String
-* Boolean
-* Number
-* Math
-* Date
-* RegExp
+* Object <br />
+* Funtion <br />
+* Array <br />
+* String <br />
+* Boolean <br />
+* Number <br />
+* Math <br />
+* Date <br />
+* RegExp <br />
 
 자바스크립트는 위와 같은 내장 객체를 가지고 있다.
 
@@ -362,18 +362,18 @@ Object 확장은 모든 객체에 영향을 주기 때문에 신중하게 사용
 
 ## 데이터 타입
 원시 데이터 타입(객체가 아닌 데이터 타입) <-> 참조 자료형 (객체)
-*숫자
-*문자열
-*boolean
-*null
-*undefined
+*숫자 <br />
+*문자열 <br />
+*boolean <br />
+*null <br />
+*undefined <br />
 
-wrapper object : 원시 데이터 형을 객체처럼 다룰 수 있도록 한 객체 (객체지향)
-*숫자 		 -> Number
-*문자열		->String
-*boolean 	  -> Boolean
-*null		  -> 없음
-*undefined	  ->없음
+wrapper object : 원시 데이터 형을 객체처럼 다룰 수 있도록 한 객체 (객체지향) <br />
+*숫자 		 -> Number <br />
+*문자열		->String <br />
+*boolean 	  -> Boolean <br />
+*null		  -> 없음 <br />
+*undefined	  ->없음 <br />
 
 
 ## 참조(reference)
