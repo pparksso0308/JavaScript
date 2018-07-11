@@ -155,10 +155,10 @@ this === 메소드가 소속되어 있는 객체
 	func.apply(o);
 	func.apply(p);
 
-결과
-window \n
-o \n
-p \n
+결과 <br />
+window <br />
+o <br />
+p <br />
 
 ### 생성자의 호출 
 
