@@ -382,13 +382,14 @@ wrapper object : 원시 데이터 형을 객체처럼 다룰 수 있도록 한 �
 	var b = a;		// 참조
 	b.id = 2;
 	console.log(a.id);  // 2
-결과
+	
+	결과
 	2
 	
 만약 a의 값이 객체라면 참조 발생 O 복사 발생 X <br />
 객체가 아니라 원시 데이터 타입이라면 참조 발생 X 복사 발생 O<br />
 
-! 주의
+	! 주의
 	var a = {'id':1};
 	var b = a;
 	b={'id':2};		// 객체 생성 == 참조X
@@ -398,7 +399,7 @@ wrapper object : 원시 데이터 형을 객체처럼 다룰 수 있도록 한 �
 	1
 	
 ## 함수와 참조
-(1)
+	(1)
 	var a = {'id':1};
 	function func(b){		//b=a
 	    b = {'id':2};		// b = {'id':2};
@@ -411,7 +412,7 @@ wrapper object : 원시 데이터 형을 객체처럼 다룰 수 있도록 한 �
 
  b = {'id':2}; b가 가리키는 객체를 변경했기 때문에 a에 영향을 미치지 않는다.
 
-(2)
+	(2)
 	var a = {'id':1};
 	function func(b){	// b=a
 	    b.id = 2;
