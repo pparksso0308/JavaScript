@@ -111,7 +111,8 @@
 	    }
 	}
 	func();		// 실행 O
-결과
+	
+	결과
 	this === window
 	
 ### 메소드 호출
@@ -126,8 +127,8 @@ this === 메소드가 소속되어 있는 객체
 	    }
 	}
 	o.func();
-
-결과
+	
+	결과
 	o === this
 	
 
@@ -154,11 +155,11 @@ this === 메소드가 소속되어 있는 객체
 	func();
 	func.apply(o);
 	func.apply(p);
-
-결과 <br />
-window <br />
-o <br />
-p <br />
+	
+	결과
+	window
+	o
+	p 
 
 ### 생성자의 호출 
 
@@ -176,10 +177,10 @@ p <br />
 	if(funcThis === o2){
 	    document.write('o2 <br />');
 	}
+	결과
+	window
+	o2
 
-결과\n
-window\n
-o2\n
 생성자는 빈 객체를 만들고 이 객체내에서 this는 만들어진 객체를 가르킨다.
 
 생성자가 실행되기 전까지 객체는 사용할 수 없다.
@@ -189,7 +190,7 @@ o2\n
 	}
 	var o = new Func();
 	
-결과
+	결과
 	undefined		// o가 생성되기 전에 생성자에서 사용함
 	
 
@@ -214,7 +215,7 @@ o2\n
 	var p1 = new Programmer('sso');
 	document.write(p1.introduce()+ "<br / >");
 
-결과
+	결과
 	My name is sso
 
 Programmer이라는 생성자를 만들고 이 생성자의 prototype과 Person객체를 연결하면 Programmer 객체도 메소드 introduce를 사용할 수 있게된다.
@@ -240,8 +241,7 @@ Programmer이라는 생성자를 만들고 이 생성자의 prototype과 Person�
 	document.write(p1.introduce()+ "<br / >");
 	document.write(p1.coding()+"<br />");
 	
-결과
-
+	결과
 	My name is sso
 	Hello World
 	
@@ -264,7 +264,7 @@ prototype에 저장된 속성들은 생성자를 통해서 객체가 만들어�
 	var o = new Sub();	
 	console.log(o.ultraProp);
 
-결과
+	결과
 	true
 
 prototype chain : prototype이 객체와 객체를 연결하는 체인 역할을 하는 것
@@ -331,7 +331,7 @@ prototype가 있는 메소드 사용
 	var o = new Object();			// 객체를 만듬
 	console.log(o.toString());
 
-결과
+	결과
 	["0","1","2"]
 	[object Object]
 
@@ -351,8 +351,7 @@ prototype가 있는 메소드 사용
 	var a = ['park','sso','yeon'];
 	console.log(a.contain('sso'));
 
-결과
-
+	결과
 	true
 	true
 
@@ -394,7 +393,8 @@ wrapper object : 원시 데이터 형을 객체처럼 다룰 수 있도록 한 �
 	var b = a;
 	b={'id':2};		// 객체 생성 == 참조X
 	console.log(a.id); 	//1
-결과
+	
+	결과
 	1
 	
 ## 함수와 참조
@@ -405,7 +405,8 @@ wrapper object : 원시 데이터 형을 객체처럼 다룰 수 있도록 한 �
 	}				// b와 a사이의 링크가 끊김
 	func(a);
 	console.log(a.id);  // 1
-결과
+	
+	결과
 	1
 
  b = {'id':2}; b가 가리키는 객체를 변경했기 때문에 a에 영향을 미치지 않는다.
@@ -417,5 +418,11 @@ wrapper object : 원시 데이터 형을 객체처럼 다룰 수 있도록 한 �
 	}
 	func(a);
 	console.log(a.id);  // 2
+	
+	결과
+	1
+	
+	
+
 
 매개 변수 b는 객체 a의 레퍼런스이므로 b를 수정하면 a에도 영향을 미친다.
